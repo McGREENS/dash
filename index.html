@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASH GLOBAL TECHNOLOGIES - Modern Product Brochure</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-blue: #1e88e5;
+            --secondary-blue: #0d47a1;
+            --accent-teal: #00acc1;
+            --light-blue: #e3f2fd;
+            --dark-gray: #263238;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #1e88e5 0%, #00acc1 100%);
+            --gradient-secondary: linear-gradient(135deg, #0d47a1 0%, #1e88e5 100%);
+            --shadow-light: 0 4px 20px rgba(30, 136, 229, 0.1);
+            --shadow-medium: 0 8px 30px rgba(30, 136, 229, 0.15);
+            --shadow-heavy: 0 15px 50px rgba(30, 136, 229, 0.2);
+        }
+        
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+        
+        /* Header Section */
+        .header {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            width: 120px;
+            height: auto;
+        }
+        
+        .company-info h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .company-info p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .header-stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Navigation */
+        .nav-section {
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-item {
+            padding: 12px 24px;
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .nav-item:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        /* Product Sections */
+        .product-section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .product-section:nth-child(even) {
+            background: var(--light-gray);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-blue);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+        
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .product-content {
+            padding: 30px;
+        }
+        
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--secondary-blue);
+            margin-bottom: 15px;
+        }
+        
+        .product-description {
+            color: var(--dark-gray);
+            opacity: 0.8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .product-features li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+            color: var(--dark-gray);
+        }
+        
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-teal);
+            font-weight: bold;
+        }
+        
+        .learn-more-btn {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .learn-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        /* Special Sections */
+        .hero-product {
+            background: var(--gradient-secondary);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-product::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-description {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            background: var(--white);
+            color: var(--primary-blue);
+            padding: 18px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 80px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .contact-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-teal);
+        }
+        
+        .contact-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            opacity: 0.9;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .company-info h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                gap: 20px;
+            }
+            
+            .header-stats {
+                justify-content: center;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .product-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .product-card:nth-child(2) { animation-delay: 0.1s; }
+        .product-card:nth-child(3) { animation-delay: 0.2s; }
+        .product-card:nth-child(4) { animation-delay: 0.3s; }
+        
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-20 { margin-bottom: 20px; }
+        .mb-40 { margin-bottom: 40px; }
+        .mt-40 { margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="cropped-logo_0-1-1.png" alt="DG Global Technologies Logo" class="logo">
+                    <div class="company-info">
+                        <h1>DASH GLOBAL TECHNOLOGIES</h1>
+                        <p>Water Engineering & Environment Friendly Building Materials</p>
+                    </div>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Quality Assured</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-section">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#grp-tanks" class="nav-item">GRP Water Tanks</a>
+                <a href="#doors" class="nav-item">Doors</a>
+                <a href="#bathtubs" class="nav-item">Bathtubs</a>
+                <a href="#ceiling-panels" class="nav-item">Ceiling Panels</a>
+                <a href="#shower-trays" class="nav-item">Shower Trays</a>
+                <a href="#water-treatment" class="nav-item">Water Treatment</a>
+                <a href="#waste-treatment" class="nav-item">Waste Treatment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Product Section -->
+    <section class="hero-product">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">GRP Water Storage Solutions</h2>
+                <p class="hero-description">
+                    Leading the industry with innovative, sustainable, and environmentally friendly water storage solutions. 
+                    Our GRP (Glass Reinforced Plastic) products combine durability, efficiency, and eco-consciousness.
+                </p>
+                <a href="#grp-tanks" class="cta-button">Explore Our Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRP Water Tanks Section -->
+    <section id="grp-tanks" class="product-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">GRP Water Storage Tanks</h2>
+                <p class="section-subtitle">
+                    Sustainable and environmentally friendly water storage solutions that combine glass fibers with plastic resin 
+                    for superior strength, durability, and corrosion resistance.
+                </p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="one peice.jpg" alt="Vertical Water Storage Tank" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">One Piece GRP Tank</h3>
+                        <p class="product-description">
+                            High-capacity vertical water storage tanks designed for residential and commercial applications.
+                        </p>
+                        <ul class="product-features">
+                            <li>Corrosion resistant</li>
+                            <li>Long service life</li>
+                            <li>Easy installation</li>
+                            <li>Eco-friendly materials</li>
+                        </ul>
+                        <a href="#" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="WhatsApp-Image-2024-03-20-at-16.17.55_d99f2d41.jpg" alt="Large Capacity Water Tank" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Two Pieces GRP Tank</h3>
+                        <p class="product-description">
+                            Modular design for easy transportation and installation in challenging locations.
+                        </p>
+                        <ul class="product-features">
+                            <li>Modular construction</li>
+                            <li>Easy transport</li>
+                            <li>Various capacities</li>
+                            <li>Professional installation</li>
+                        </ul>
+                        <a href="#" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="GRP-WATER-TANK.png" alt="Industrial Water Storage" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Flexible Water Tank</h3>
+                        <p class="product-description">
+                            Innovative flexible design for temporary or permanent water storage solutions.
+                        </p>
+                        <ul class="product-features">
+                            <li>Flexible installation</li>
+                            <li>Space efficient</li>
+                            <li>Portable solution</li>
+                            <li>Quick deployment</li>
+                        </ul>
+                        <a href="#" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doors Section -->
+    <section id="doors" class="product-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">GRP Doors</h2>
+                <p class="section-subtitle">
+                    High-quality GRP doors that combine durability, aesthetic appeal, and excellent performance 
+                    for various environmental conditions.
+                </p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="door.jpg" alt="Entrance Door" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">GRP Entrance Doors</h3>
+                        <p class="product-description">
+                            Elegant and secure entrance doors designed for residential and commercial properties.
+                        </p>
+                        <ul class="product-features">
+                            <li>Weather resistant</li>
+                            <li>Security features</li>
+                            <li>Aesthetic designs</li>
+                            <li>Low maintenance</li>
+                        </ul>
+                        <a href="#" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="panel door.jpg" alt="Panel Door" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Panel Doors</h3>
+                        <p class="product-description">
+                            Traditional panel design with modern GRP construction for enhanced durability.
+                        </p>
+                        <ul class="product-features">
+                            <li>Classic design</li>
+                            <li>Modern materials</li>
+                            <li>Insulation properties</li>
+                            <li>Custom finishes</li>
+                        </ul>
+                        <a href="#" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bathtubs Section -->
+    <section id="bathtubs" class="product-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">GRP Bathtubs</h2>
+                <p class="section-subtitle">
+                    Premium GRP bathtubs designed for comfort, durability, and modern aesthetics with excellent heat retention.
+                </p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="onyx.png" alt="Freestanding Bathtub" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Onyx Bathtub</h3>
+                        <p class="product-description">
+                            Luxurious freestanding bathtub with elegant curves and superior comfort features.
+                        </p>
+                        <ul class="product-features">
+                            <li>Freestanding design</li>
+                            <li>Heat retention</li>
+                            <li>Easy cleaning</li>
+                            <li>Modern aesthetics</li>
+                        </ul>
+                        <a href="#" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="round.jpg" alt="Round Bathtub" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Round GRP Bathtub</h3>
+                        <p class="product-description">
+                            Contemporary round design perfect for modern bathroom layouts and spa-like experiences.
+                        </p>
+                        <ul class="product-features">
+                            <li>Unique round design</li>
+                            <li>Spa experience</li>
+                            <li>Durable construction</li>
+                            <li>Easy maintenance</li>
+                        </ul>
+                        <a href="#" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ceiling Panels Section -->
+    <section id="ceiling-panels" class="product-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">GRP Ceiling Panels</h2>
+                <p class="section-subtitle">
+                    Lightweight, durable, and easy-to-install ceiling panels with excellent insulation and moisture resistance.
+                </p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="ceiling panel.jpg" alt="GRP Ceiling Panel" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Modular Ceiling Panels</h3>
+                        <p class="product-description">
+                            Versatile ceiling solution suitable for residential, commercial, and industrial applications.
+                        </p>
+                        <ul class="product-features">
+                            <li>Lightweight construction</li>
+                            <li>Moisture resistant</li>
+                            <li>Easy installation</li>
+                            <li>Thermal insulation</li>
+                        </ul>
+                        <a href="#" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shower Trays Section -->
+    <section id="shower-trays" class="product-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">GRP Shower Trays</h2>
+                <p class="section-subtitle">
+                    High-quality shower trays designed for durability, functionality, and sleek finish with waterproof solutions.
+                </p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="shower.jpg" alt="GRP Shower Tray" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Premium Shower Trays</h3>
+                        <p class="product-description">
+                            Robust and waterproof shower tray solutions available in various sizes and designs.
+                        </p>
+                        <ul class="product-features">
+                            <li>Waterproof design</li>
+                            <li>Non-slip surface</li>
+                            <li>Various sizes</li>
+                            <li>Easy drainage</li>
+                        </ul>
+                        <a href="#" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Water Treatment Section -->
+    <section id="water-treatment" class="product-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">RO Water Treatment Plants</h2>
+                <p class="section-subtitle">
+                    Advanced Reverse Osmosis water treatment systems for industrial and commercial applications.
+                </p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="ro purification.jpg" alt="RO Treatment System" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Industrial RO Systems</h3>
+                        <p class="product-description">
+                            High-capacity reverse osmosis systems for industrial water purification needs.
+                        </p>
+                        <ul class="product-features">
+                            <li>High efficiency</li>
+                            <li>Automated operation</li>
+                            <li>Quality assurance</li>
+                            <li>Low maintenance</li>
+                        </ul>
+                        <a href="#" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="commercial ro.jpg" alt="Commercial RO Plant" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Commercial RO Plants</h3>
+                        <p class="product-description">
+                            Scalable water treatment solutions for commercial and institutional applications.
+                        </p>
+                        <ul class="product-features">
+                            <li>Scalable design</li>
+                            <li>Energy efficient</li>
+                            <li>Remote monitoring</li>
+                            <li>Professional support</li>
+                        </ul>
+                        <a href="#" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waste Water Treatment Section -->
+    <section id="waste-treatment" class="product-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Waste Water Treatment (KLARO SBR)</h2>
+                <p class="section-subtitle">
+                    Innovative KLARO SBR products for efficient and environmentally friendly waste water treatment.
+                </p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="container.png" alt="KLARO Container System" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">KLARO Container Systems</h3>
+                        <p class="product-description">
+                            Complete containerized wastewater treatment solutions for various applications.
+                        </p>
+                        <ul class="product-features">
+                            <li>Plug-and-play design</li>
+                            <li>Compact footprint</li>
+                            <li>High treatment efficiency</li>
+                            <li>Easy maintenance</li>
+                        </ul>
+                        <a href="#" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="SBR Treatment Plant.png" alt="KLARO SBR System" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">SBR Treatment Plants</h3>
+                        <p class="product-description">
+                            Sequencing Batch Reactor technology for reliable wastewater treatment.
+                        </p>
+                        <ul class="product-features">
+                            <li>Advanced SBR technology</li>
+                            <li>Automated control</li>
+                            <li>Environmental compliance</li>
+                            <li>Cost effective</li>
+                        </ul>
+                        <a href="#" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">Contact Us</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">
+                    Get in touch with our experts for your water engineering and building material needs.
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-title">Phone</div>
+                    <div class="contact-info">
+                        +250 252 580 068<br>
+                        +250 781 375 510
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-title">Mobile</div>
+                    <div class="contact-info">+971 56 189 6201</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-title">Email</div>
+                    <div class="contact-info">info@dashglobaltech.com</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-title">Address</div>
+                    <div class="contact-info">
+                        10 KG 567 St, Kacyiru<br>
+                        PO Box 746 Kigali<br>
+                        Rwanda
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
